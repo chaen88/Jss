@@ -8,9 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="">
-        {% csrf_token %}
-        {{jss_form.as_p}}
+    <form method="POST" action=""> <!-- POST:보안 적용 action: 폼에서 제출 했을때 실행 -->
+        {% csrf_token %} <!-- 보안 token-->
+        {{jss_form.as_p}} <!--p로 폼 감싸주기-->
         <input type="submit" value="확인">
     </form>
 

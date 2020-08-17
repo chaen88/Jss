@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
 
-LOGIN_REDIRECT_URL ='/'
+LOGIN_REDIRECT_URL ='/' # 로그인 했을때 메인 화면으로 이동
 LOGOUT_REDIRECT_URL ='/'

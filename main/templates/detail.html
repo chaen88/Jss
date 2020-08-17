@@ -14,12 +14,12 @@
 
 <br>
 
-{% if user == my_jss.author %}
+{% if user == my_jss.author %} <!-- if문으로 자소설 객체에 등록된 작성자와 동일 시에만 수정/삭제 버튼 활성화-->
 <a href="{% url 'update' my_jss.id %}"><button>수정</button></a>
 <a href="{% url 'delete' my_jss.id %}"><button>삭제</button></a>
 {% endif %}
 
-{% if user.is_authenticated %}
+{% if user.is_authenticated %} <!-- 인증된 유저만 댓글 보여주기-->
     <form method="POST" action="{% url 'create_comment' my_jss.id %}">
     {% csrf_token %}
     {{comment_form}}
@@ -27,11 +27,11 @@
     </form>
 {% endif %}
 
-{% for comment in my_jss.comment_set.all %}
+{% for comment in my_jss.comment_set.all %} <!--comment 다 가져오기-->
 
 <p>
-    {{comment.author}} {{comment.content}} 
-    {% if user == comment.author %}
+    {{comment.author}} 💌 {{comment.content}} 
+    {% if user == comment.author %} <!--유저가 comment author 동일 시에만 삭제버튼 활성화-->
     <a href="{% url 'delete_comment' my_jss.id comment.id %}">
         <button>삭제</button>
     </a>

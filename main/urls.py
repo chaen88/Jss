@@ -6,7 +6,7 @@ urlpatterns = [
     path('', index, name="index"),
     path('my_index',my_index, name="my_index"),
     path('create/', create, name="create"),
-    path('detail/<int:jss_id>', detail, name="detail"),
+    path('detail/<int:jss_id>', detail, name="detail"), #숫자 형식인 int:변수명(어떤 변수명으로 받을지)
     path('delete/<int:jss_id>', delete, name="delete"),
     path('update/<int:jss_id>', update, name="update"),
 

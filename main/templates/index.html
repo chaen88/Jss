@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} <!--static 파일 쓰기 위해 -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,18 +6,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자소설 닷컴</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"> <!-- html,css 연결 -->
 </head>
 <body>
 
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated %} <!--유저의 로그인 여부-->
     <a href="{% url 'logout' %}">
         <button>로그아웃</button>
     </a>
 
     안녕하세요! {{user}}님
 
-    {% else %}
+    {% else %}<!--로그인이 안됐을 경우-->
 
     <a href="{% url 'signup' %}">
         <button>회원가입</button>
@@ -38,7 +38,7 @@
         </a>
         <p>자기소개서 작성</p>
     </div>
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated %} <!-- 유저가 로그인 시에만 보여줌-->
         <a href="{% url 'my_index' %}">
             <button>내 자기소개서만 보기</button>
         </a>
@@ -48,10 +48,10 @@
     {% endif %}
     <br>
 
-    {% for jss in all_jss %}
-    <a href="{% url 'detail' jss.id %}">
+    {% for jss in all_jss %} 
+    <a href="{% url 'detail' jss.id %}"> <!-- jss.id 같이 보내줌-->
     <div class="all_jss">
-        <P>{{jss.author}}</p>
+        <P>{{jss.author}}</p> <!--author: 작성자 조회-->
         <p>{{jss.title}}</p>
         <p>{{jss.content}}</p>
         <p>{{jss.updated_at|date:" Y-m-d"}}</p>
