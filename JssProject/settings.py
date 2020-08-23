@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     #provider 구글 북 카톡 어쩌구 제공업체
     'allauth.socialaccount.providers.google',
 ]
-SITE_ID = 0
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'ko-kn'
+LANGUAGE_CODE = 'ko-kr'
 
 TIME_ZONE = 'Asia/Seoul'
 
@@ -149,3 +149,5 @@ AUTHENTICATION_BACKENDS = (
     # 'allauth' specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+SITE_ID = 1
