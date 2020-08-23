@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from .views import index, create, detail, delete, update, my_index, create_comment, delete_comment
 
 
@@ -13,4 +13,7 @@ urlpatterns = [
     #comment #
     path('create_comment/<int:jss_id>/', create_comment, name="create_comment"),
     path('delete_comment/<int:jss_id>/<int:comment_id>',delete_comment,name="delete_comment"),
+
+    # social login #
+    path('account/', include('allauth.urls')),
 ]

@@ -4,6 +4,7 @@ from .models import Jasoseol, Comment
 from django.http import Http404
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator #Paginator 페이지 나누게 해 줄수 있는거
 
 # Create your views here.
 
@@ -77,3 +78,10 @@ def delete_comment(request,jss_id, comment_id):
 
     else:
         raise PermissionDenied
+
+def index(request):
+    all_jss = Jasoseol.objects.all() #자소서 전체목록 불러오기
+    paginator = Paginator(all_jss, 5) #한페이지에 자소설 5개만 보임
+    page = request.GET.get('page') #요청받은 페이지 알아내기
+    jss_page = paginator.get_page(page) #자른 페이지 중에서 요청받은ㄴ 페이지에 들어가는 자소서 목록들
+    return render(request,'index.html',{'all_jss' : jss_page}) #모든 페이지 한 페이지로 보이게
